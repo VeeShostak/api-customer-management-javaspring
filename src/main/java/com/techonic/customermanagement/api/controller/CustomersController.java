@@ -23,6 +23,6 @@ public class CustomersController {
 
     @PostMapping
     public ResponseEntity<String> createCustomer() {
-        return new ResponseEntity<>("createCustomer ", HttpStatus.OK);
+        return new ResponseEntity<>("createCustomer ", HttpStatus.CREATED);
     }
 }
