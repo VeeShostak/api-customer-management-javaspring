@@ -2,12 +2,14 @@ package com.techonic.customermanagement.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-public class ApiCustomermanagementApplication {
+@EntityScan(basePackages = "com.techonic.customermanagement.api.entity")
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiCustomermanagementApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

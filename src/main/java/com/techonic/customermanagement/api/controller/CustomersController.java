@@ -1,5 +1,6 @@
 package com.techonic.customermanagement.api.controller;
 
+import com.techonic.customermanagement.api.entity.Customer;
 import com.techonic.customermanagement.api.service.CustomersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,17 +19,17 @@ public class CustomersController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<String> findCustomerById(@PathVariable Long id) {
+    public ResponseEntity<Customer> findCustomerById(@PathVariable Long id) {
         return new ResponseEntity<>(customersService.findCustomerById(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateCustomer(@PathVariable Long id) {
-        return new ResponseEntity<>(customersService.updateCustomer(id), HttpStatus.OK);
+    public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
+        return new ResponseEntity<>(customersService.updateCustomer(customer), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<String> createCustomer() {
-        return new ResponseEntity<>(customersService.createCustomer(), HttpStatus.CREATED);
+    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
+        return new ResponseEntity<>(customersService.createCustomer(customer), HttpStatus.CREATED);
     }
 }
